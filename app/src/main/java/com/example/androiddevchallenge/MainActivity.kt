@@ -55,7 +55,10 @@ fun MyApp(fleet: Fleet) {
         composable("details/{teamName}") { backStackEntry ->
             val teamName = backStackEntry.arguments?.getString("teamName")
             val team = fleet.teams.first { it.name == teamName }
-            TeamDetails(team)
+            TeamDetails(
+                team = team,
+                onBackButtonClick = { navController.popBackStack() }
+            )
         }
     }
 }
