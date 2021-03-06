@@ -15,6 +15,17 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+
     <color name="black">#FF000000</color>
+    <color name="grey">#FF353547</color>
+    <color name="translucent_grey">#80FFFFFF</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="blue_action">#FF0000FF</color>
+    <color name="blue_communication">#FF0000A4</color>
+    <color name="blue_faded">#FF6F90BF</color>
+    <color name="blue_tertiary">#FFF0F6FF</color>
+
+    <color name="dark_background">#FF03031A</color>
+    <color name="dark_surface">#FF1C1C31</color>
 </resources>
