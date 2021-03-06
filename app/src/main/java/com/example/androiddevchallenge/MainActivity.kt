@@ -18,11 +18,17 @@ package com.example.androiddevchallenge
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.androiddevchallenge.domain.APP_FLEET
+import com.example.androiddevchallenge.domain.Fleet
+import com.example.androiddevchallenge.ui.overview.TeamsList
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 class MainActivity : AppCompatActivity() {
@@ -30,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyTheme {
-                MyApp()
+                MyApp(APP_FLEET)
             }
         }
     }
@@ -38,9 +44,16 @@ class MainActivity : AppCompatActivity() {
 
 // Start building your app here!
 @Composable
-fun MyApp() {
-    Surface(color = MaterialTheme.colors.background) {
-        Text(text = "Ready... Set... GO!")
+fun MyApp(fleet: Fleet) {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text("Hello, ${fleet.name}!") },
+                backgroundColor = MaterialTheme.colors.surface,
+            )
+        }
+    ) { innerPadding ->
+        TeamsList(teams = fleet.teams, modifier = Modifier.padding(innerPadding))
     }
 }
 
@@ -48,7 +61,7 @@ fun MyApp() {
 @Composable
 fun LightPreview() {
     MyTheme {
-        MyApp()
+        MyApp(APP_FLEET)
     }
 }
 
@@ -56,6 +69,6 @@ fun LightPreview() {
 @Composable
 fun DarkPreview() {
     MyTheme(darkTheme = true) {
-        MyApp()
+        MyApp(APP_FLEET)
     }
 }
