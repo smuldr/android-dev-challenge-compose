@@ -15,6 +15,7 @@
  */
 package com.example.androiddevchallenge.ui.overview
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -27,7 +28,11 @@ import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.domain.Team
 
 @Composable
-fun TeamsList(teams: List<Team>, modifier: Modifier = Modifier) {
+fun TeamsList(
+    teams: List<Team>,
+    onTeamClick: (String) -> Unit,
+    modifier: Modifier = Modifier
+) {
     val scrollState = rememberScrollState()
     Column(modifier.verticalScroll(scrollState)) {
         teams.forEach { team ->
@@ -38,6 +43,7 @@ fun TeamsList(teams: List<Team>, modifier: Modifier = Modifier) {
                         horizontal = dimensionResource(id = R.dimen.horizontal_margin),
                         vertical = dimensionResource(id = R.dimen.gutter) / 2,
                     )
+                    .clickable(onClickLabel = "Show team details") { onTeamClick(team.name) }
             )
             Divider()
         }

@@ -28,7 +28,11 @@ import com.example.androiddevchallenge.domain.Fleet
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 @Composable
-fun FleetOverview(fleet: Fleet, modifier: Modifier = Modifier) {
+fun FleetOverview(
+    fleet: Fleet,
+    onTeamClick: (String) -> Unit,
+    modifier: Modifier = Modifier,
+) {
     Scaffold(
         modifier = modifier,
         topBar = {
@@ -38,7 +42,11 @@ fun FleetOverview(fleet: Fleet, modifier: Modifier = Modifier) {
             )
         }
     ) { innerPadding ->
-        TeamsList(teams = fleet.teams, modifier = Modifier.padding(innerPadding))
+        TeamsList(
+            teams = fleet.teams,
+            onTeamClick = onTeamClick,
+            modifier = Modifier.padding(innerPadding)
+        )
     }
 }
 
@@ -46,6 +54,9 @@ fun FleetOverview(fleet: Fleet, modifier: Modifier = Modifier) {
 @Composable
 fun FleetOverviewPreview() {
     MyTheme {
-        FleetOverview(APP_FLEET)
+        FleetOverview(
+            fleet = APP_FLEET,
+            onTeamClick = { },
+        )
     }
 }
