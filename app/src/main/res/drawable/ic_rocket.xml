@@ -1,0 +1,40 @@
+<!-- Icons made by smalllikeart from www.flaticon.com -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="64dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="m45.9,52.553 l-4.9,-9.789v-5.764a1.792,1.792 0,0 0,-0.1 -0.447l-1.9,-3.789v-11.764a1.792,1.792 0,0 0,-0.1 -0.447l-1.9,-3.789v-5.764a1.769,1.769 0,0 0,-0.168 -0.555l-3.832,-5.745v-1.7a1,1 0,0 0,-2 0v1.7l-3.832,5.748a1.769,1.769 0,0 0,-0.168 0.552v5.764l-1.895,3.789a1.792,1.792 0,0 0,-0.105 0.447v11.764l-1.895,3.789a1.792,1.792 0,0 0,-0.105 0.447v5.764l-4.895,9.789a1,1 0,0 0,0.895 1.447h3.72l-0.69,2.757a2.016,2.016 0,0 0,-0.03 0.243v4a1,1 0,0 0,1 1h18a1,1 0,0 0,1 -1v-4a2.016,2.016 0,0 0,-0.03 -0.243l-0.69,-2.757h3.72a1,1 0,0 0,0.9 -1.447zM39.719,56h-3.719v-2h3.219zM24.781,54h3.219v2h-3.719zM33,52h-2v-4.764l1,-2 1,2zM30,54h4v2h-4zM35,52v-5a1,1 0,0 0,-0.1 -0.447l-2,-4a1.042,1.042 0,0 0,-1.79 0l-2,4a1,1 0,0 0,-0.11 0.447v5h-4v-14h14v14zM32,6.8 L34.132,10h-4.264zM29,12h6v4h-6zM28.618,18h6.764l1,2h-8.764zM27,22h10v10h-10zM26.618,34h10.764l1,2h-12.764zM23,47.236v4.764h-2.382zM24,58h4v2h-4zM30,58h4v2h-4zM40,60h-4v-2h4zM41,52v-4.764l2.382,4.764z" />
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="m27,40h2v2h-2z" />
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="m35,40h2v2h-2z" />
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="m41,12h2v2h-2z" />
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="m41,16h2v2h-2z" />
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="m39,14h2v2h-2z" />
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="m43,14h2v2h-2z" />
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="m19,23h2v2h-2z" />
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="m19,27h2v2h-2z" />
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="m21,25h2v2h-2z" />
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="m34,24h-4v2h3v3h2v-4a1,1 0,0 0,-1 -1z" />
+</vector>
