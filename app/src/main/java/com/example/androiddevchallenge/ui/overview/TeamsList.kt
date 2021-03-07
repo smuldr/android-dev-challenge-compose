@@ -39,11 +39,11 @@ fun TeamsList(
             TeamItem(
                 team = team,
                 modifier = Modifier
+                    .clickable(onClickLabel = "Show team details") { onTeamClick(team.name) }
                     .padding(
                         horizontal = dimensionResource(id = R.dimen.horizontal_margin),
                         vertical = dimensionResource(id = R.dimen.gutter) / 2,
                     )
-                    .clickable(onClickLabel = "Show team details") { onTeamClick(team.name) }
             )
             Divider()
         }
