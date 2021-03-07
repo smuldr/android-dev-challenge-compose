@@ -16,16 +16,19 @@
 package com.example.androiddevchallenge.ui.overview
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Divider
+import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.androiddevchallenge.R
+import com.example.androiddevchallenge.domain.APP_FLEET
 import com.example.androiddevchallenge.domain.Team
+import com.example.androiddevchallenge.ui.theme.MyTheme
 
 @Composable
 fun TeamsList(
@@ -33,9 +36,8 @@ fun TeamsList(
     onTeamClick: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val scrollState = rememberScrollState()
-    Column(modifier.verticalScroll(scrollState)) {
-        teams.forEach { team ->
+    LazyColumn(modifier) {
+        items(generateMoreTeams(teams)) { team ->
             TeamItem(
                 team = team,
                 modifier = Modifier
@@ -49,3 +51,25 @@ fun TeamsList(
         }
     }
 }
+
+@Preview(widthDp = 360, heightDp = 640)
+@Composable
+fun TeamsListPreview() {
+    MyTheme {
+        Surface {
+            TeamsList(
+                teams = APP_FLEET.teams,
+                onTeamClick = { },
+            )
+        }
+    }
+}
+
+private fun generateMoreTeams(teams: List<Team>): List<Team> =
+    teams.toMutableList()
+        .apply {
+            repeat(100) {
+                addAll(teams)
+            }
+        }
+        .toList()
