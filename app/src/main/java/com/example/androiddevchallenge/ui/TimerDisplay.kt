@@ -15,6 +15,7 @@
  */
 package com.example.androiddevchallenge.ui
 
+import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.combinedClickable
@@ -57,22 +58,34 @@ fun TimerDisplay(
         ),
         shape = MaterialTheme.shapes.medium
     ) {
-        val isDividerBlinking = state is TimerState.Running && state.isDividerBlinking
         Text(
-            text = createTimeString(minutesComponent, secondsComponent, isDividerBlinking),
-            modifier = Modifier.padding(vertical = 16.dp),
+            text = createTimeString(minutesComponent, secondsComponent),
+            modifier = Modifier.padding(vertical = 16.dp).fillMaxWidth(),
             textAlign = TextAlign.Center,
             fontFamily = FontFamily.Monospace,
             style = MaterialTheme.typography.h4
         )
+
+        // Draw the divider separately for a smooth fading animation.
+        val isDividerBlinking = state is TimerState.Running && state.isDividerBlinking
+        Crossfade(targetState = isDividerBlinking,) { blink ->
+            Text(
+                text = if (blink) " " else ":",
+                modifier = Modifier
+                    .padding(vertical = 16.dp)
+                    .fillMaxWidth(),
+                textAlign = TextAlign.Center,
+                fontFamily = FontFamily.Monospace,
+                style = MaterialTheme.typography.h4
+            )
+        }
     }
 }
 
-private fun createTimeString(minutes: Int, seconds: Int, isDividerBlinking: Boolean): String {
+private fun createTimeString(minutes: Int, seconds: Int): String {
     val minsString = minutes.toString().padStart(2, '0')
     val secsString = seconds.toString().padStart(2, '0')
-    val divider = if (isDividerBlinking) " " else ":"
-    return "$minsString$divider$secsString"
+    return "$minsString $secsString"
 }
 
 @Preview("Light Theme", widthDp = 360, heightDp = 640)
